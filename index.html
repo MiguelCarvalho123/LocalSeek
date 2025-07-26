@@ -86,7 +86,7 @@
                     <input type="email" class="form-input" placeholder="Email" required>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-input" placeholder="Password" required>
+                    <input type="password" class="form-input" placeholder="Senha" required>
                 </div>
                 <div class="forgot-password">
                     <a href="#">FORGOT PASSWORD?</a>
@@ -100,11 +100,11 @@
 
             <div class="divider">
                 <span>Or log in with third party services</span>
-            </div>
+            </div>  
 
-            <button class="twitch-login" id="twitchLogin">
-                <span class="twitch-icon">📺</span>
-                LOG IN WITH TWITCH
+            <button class="google-login" id="googleLogin">
+                <span class="google-icon">📺</span>
+                LOG IN WITH GOOGLE
             </button>
         </div>
     </div>
@@ -195,9 +195,9 @@
             closeLoginModal();
         });
 
-        // Botão Twitch
-        document.getElementById('twitchLogin').addEventListener('click', () => {
-            alert('Login com Twitch funcionaria aqui!');
+        // Botão Google
+        document.getElementById('googleLogin').addEventListener('click', () => {
+            alert('Login com Google funcionaria aqui!');
         });
 
         // Link Create Account
