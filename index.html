@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -41,44 +42,46 @@
           <button class="close-btn" id="closeBtn">&times;</button>
       </div>
       <div class="offcanvas-body">
-
+        <a href="#" class="menu-item">
+            <i class="icon"><img id = "dropdownicon" src = "images/icon2.png"></i>
+            <p id = "textIcon">Login</p>
+        </a>
+        <br>
           <div class="menu-section">
               <div class="menu-section-title">Páginas</div>
               <a href="#" class="menu-item">
-                  <i class="icon">🏠</i>
-                  Página Inicial
+                  <i class="icon"><img id = "dropdownicon" src = "images/icon3.png"></i>
+                  <p id = "textIcon">Página Inicial</p>
               </a>
               <a href="#" class="menu-item">
-                  <i class="icon">💡</i>
-                  Descubra sua viagem
+                  <i class="icon"><img id = "dropdownicon" src = "images/icon4.png"></i>
+                  <p id = "textIcon">Descubra sua viagem</p>
               </a>
               <a href="#" class="menu-item">
-                  <i class="icon">📋</i>
-                  Histórico
+                  <i class="icon"><img id = "dropdownicon" src = "images/icon6.png"></i>
+                  <p id = "textIcon">Histórico</p>
               </a>         
               <a href="#" class="menu-item">
-                  <i class="icon">❓</i>
-                  Sobre Nós
+                  <i class="icon"><img id = "dropdownicon" src = "images/icon5.png"></i>
+                  <p id = "textIcon">Sobre Nós</p>
               </a>
               <a href="#" class="menu-item">
-                  <i class="icon">📞</i>
-                  Contato
+                  <i class="icon"><img id = "dropdownicon" src = "images/icon1.png"></i>
+                  <p id = "textIcon">Contato</p>
               </a>
-              <a href="#" class="menu-item">
-                <i class="icon">ℹ️</i>
-                Login
-            </a>
+    
           </div>
       </div>
   </div>
 
     <!-- Modal de Login ---------------------------------------------------------------------->
+
       <div class="login-modal" id="loginModal">
         <div class="modal-content">
             <button class="modal-close" id="modalClose">&times;</button>
             <div class="modal-header">
                 <div class="modal-flag"></div>
-                <h2 class="modal-title">Log in</h2>
+                <h2 class="modal-title"><img id = "imageLogin" src = "images/Icone sem fundo.png"> Log in</h2>
             </div>
             
             <form id="loginForm">
@@ -89,34 +92,94 @@
                     <input type="password" class="form-input" placeholder="Senha" required>
                 </div>
                 <div class="forgot-password">
-                    <a href="#">FORGOT PASSWORD?</a>
+                    <a href="#">Esqueceu a senha?</a>
                 </div>
                 <button type="submit" class="login-button">LOGIN</button>
             </form>
-
+            
             <div class="no-account">
-                No account yet? <a href="#" id="createAccountLink">Create one</a>
+                Não possui uma conta? <a href="#" id="createAccountLink">Crie uma</a>
             </div>
 
             <div class="divider">
-                <span>Or log in with third party services</span>
-            </div>  
-
+                <span>Ou entre com serviços de terceiros</span>
+            </div>
             <button class="google-login" id="googleLogin">
                 <span class="google-icon">📺</span>
-                LOG IN WITH GOOGLE
+                LOG IN COM GOOGLE
             </button>
         </div>
     </div>
+    
+    <!-- Modal de Signup ---------------------------------------------------------------------->
 
+    <div class="signup-modal" id="signupModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-header">
+                <div class="modal-flag"></div>
+                <h2 class="modal-title">Cadastre-se</h2>
+            </div>
+            
+            <form id="signupForm">
+                <div class="form-group">
+                    <input type="text" class="form-input" id="firstName" placeholder="Nome" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" class="form-input" id="email" placeholder="Email" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="password" class="form-input" id="password" placeholder="Senha" required>
+                    <div class="password-strength">
+                        <div class="password-strength-bar" id="passwordStrengthBar"></div>
+                    </div>
+                    <div class="password-requirements">
+                        Mínimo 8 caracteres, incluindo letras, números e símbolos
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <input type="password" class="form-input" id="confirmPassword" placeholder="Confirmar Senha" required>
+                </div>
+                
+                <div class="terms-checkbox">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">
+                        Eu concordo com os <a href="#" target="_blank">Termos de Uso</a> e 
+                        <a href="#" target="_blank">Política de Privacidade</a>
+                    </label>
+                </div>
+                
+                <button type="submit" class="signup-button" id="signupButton">CADASTRAR</button>
+            </form>
+            
+            <div class="has-account">
+                Já possui uma conta? <a href="#" id="loginLink">Faça login</a>
+            </div>
+
+            <div class="divider">
+                <span>Ou cadastre-se com serviços de terceiros</span>
+            </div>
+            
+            <button class="google-signup" id="googleSignup">
+                <span class="google-icon">📺</span>
+                CADASTRAR COM GOOGLE
+            </button>
+        </div>
+    </div>
+    <!---------------------------------------------------------------------------------------->  
+    <!--Página main ------------------------------------------------------------------------->
     <main class="main-content">
         <div class="hero-section">
             <h1 class="hero-title">Descubra seu novo local de lazer!</h1>
             <p class="hero-subtitle">Resultados incríveis, baseados em suas preferências</p>
-            <button class="cta-button">Começar a explorar</button>
         </div>
     </main>  
+    
     <!---------------------------------------------------------------------------------------->  
+
   <script>
     // Elementos
     const menuToggle = document.getElementById('menuToggle');
@@ -124,6 +187,7 @@
     const overlay = document.getElementById('overlay');
     const closeBtn = document.getElementById('closeBtn');
     const loginModal = document.getElementById('loginModal');
+    const signupModal = document.getElementById('signupModal');
     const modalClose = document.getElementById('modalClose');
     const loginBtn = document.getElementById('loginBtn');
     const loginForm = document.getElementById('loginForm');    
@@ -158,10 +222,10 @@
     loginBtn.addEventListener('click', () => {
             loginModal.classList.add('show');
             document.body.style.overflow = 'hidden';
+            signupModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
     });
-    document.getElementById('signupBtn').addEventListener('click', () => {
-        alert('Funcionalidade de Sign Up seria implementada aqui!');
-    });
+  
 
     // Modal de Login
     function closeLoginModal() {
@@ -200,29 +264,10 @@
             alert('Login com Google funcionaria aqui!');
         });
 
-        // Link Create Account
-        document.getElementById('createAccountLink').addEventListener('click', (e) => {
-            e.preventDefault();
-            closeLoginModal();
-            alert('Modal de Sign Up seria aberto aqui!');
-        });
     </script>
     <!---------------------------------------------------------------------------------------->
     <!-- Container do explorar---------------------------------------------------------------->
-    <div class="container">
-        <div class="header">
-            <h1>Descubra seu novo local de lazer!</h1>
-            <p>Resultados imediatos, baseados em suas preferências</p>
-        </div>
-
-        <div class="discover-section">
-            <h2 class="section-title"><i class="fas fa-search"></i> Descobrir</h2>
-            <div class="discover-content">
-                <p>Explore mais opções e recursos disponíveis</p>
-                <button class="discover-btn">Começar a explorar</button>
-            </div>
-        </div>
-    </div>
+    
     <!---------------------------------------------------------------------------------------->
     <!-- Code injected by live-server -->
 <script>
