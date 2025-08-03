@@ -1,89 +1,91 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local Seek</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href = "CSS/style.css" rel = "stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
+    <link href="CSS/style.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
 </head>
+
 <body>
     <!-- NavBar ------------------------------------------------------------------------------->
     <nav class="navbar">
-      <div class="nav-content">
-          <!-- Menu Hamburger - Esquerda -->
-          <button class="menu-toggle" id="menuToggle">
-              <div class="hamburger-line"></div>
-              <div class="hamburger-line"></div>
-              <div class="hamburger-line"></div>
-          </button>
+        <div class="nav-content">
+            <!-- Menu Hamburger - Esquerda -->
+            <button class="menu-toggle" id="menuToggle">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </button>
 
-          <!-- Logo - Centro -->
-          <a href="#" class="logo"><img id = "logoimage" src = "images/Logo sem fundo.png"></a>
+            <!-- Logo - Centro -->
+            <a href="#" class="logo"><img id="logoimage" src="images/Logo sem fundo.png"></a>
 
-          <!-- Botões Login/Signup - Direita -->
-          <div class="auth-buttons">
-              <button class="login-btn" id="loginBtn">Entrar</button>
-              <button class="signup-btn" id="signupBtn">Registrar-se</button>
-          </div>
-      </div>
-  </nav>
+            <!-- Botões Login/Signup - Direita -->
+            <div class="auth-buttons">
+                <button class="login-btn" id="loginBtn">Entrar</button>
+                <button class="signup-btn" id="signupBtn">Registrar-se</button>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Overlay -->
-  <div class="overlay" id="overlay"></div>
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
 
-  <!-- Offcanvas Sidebar -->
-  <div class="offcanvas" id="offcanvas">
-      <div class="offcanvas-header">
-          <h5 class="offcanvas-title">Local Seek</h5>
-          <button class="close-btn" id="closeBtn">&times;</button>
-      </div>
-      <div class="offcanvas-body">
-        <a href="#" class="menu-item">
-            <i class="icon"><img id = "dropdownicon" src = "images/icon2.png"></i>
-            <p id = "textIcon">Login</p>
-        </a>
-        <br>
-          <div class="menu-section">
-              <div class="menu-section-title">Páginas</div>
-              <a href="#" class="menu-item">
-                  <i class="icon"><img id = "dropdownicon" src = "images/icon3.png"></i>
-                  <p id = "textIcon">Página Inicial</p>
-              </a>
-              <a href="#" class="menu-item">
-                  <i class="icon"><img id = "dropdownicon" src = "images/icon4.png"></i>
-                  <p id = "textIcon">Descubra sua viagem</p>
-              </a>
-              <a href="#" class="menu-item">
-                  <i class="icon"><img id = "dropdownicon" src = "images/icon6.png"></i>
-                  <p id = "textIcon">Histórico</p>
-              </a>         
-              <a href="#" class="menu-item">
-                  <i class="icon"><img id = "dropdownicon" src = "images/icon5.png"></i>
-                  <p id = "textIcon">Sobre Nós</p>
-              </a>
-              <a href="#" class="menu-item">
-                  <i class="icon"><img id = "dropdownicon" src = "images/icon1.png"></i>
-                  <p id = "textIcon">Contato</p>
-              </a>
-    
-          </div>
-      </div>
-  </div>
+    <!-- Offcanvas Sidebar -->
+    <div class="offcanvas" id="offcanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Local Seek</h5>
+            <button class="close-btn" id="closeBtn">&times;</button>
+        </div>
+        <div class="offcanvas-body">
+            <a href="" class="menu-item" id="loginOffcanvas">
+                <i class="icon"><img id="dropdownicon" src="images/icon2.png"></i>
+                <p id="textIcon">Login</p>
+            </a>
+            <br>
+            <div class="menu-section">
+                <div class="menu-section-title">Páginas</div>
+                <a href="#" class="menu-item">
+                    <i class="icon"><img id="dropdownicon" src="images/icon3.png"></i>
+                    <p id="textIcon">Página Inicial</p>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="icon"><img id="dropdownicon" src="images/icon4.png"></i>
+                    <p id="textIcon">Descubra sua viagem</p>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="icon"><img id="dropdownicon" src="images/icon6.png"></i>
+                    <p id="textIcon">Histórico</p>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="icon"><img id="dropdownicon" src="images/icon5.png"></i>
+                    <p id="textIcon">Sobre Nós</p>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="icon"><img id="dropdownicon" src="images/icon1.png"></i>
+                    <p id="textIcon">Contato</p>
+                </a>
+
+            </div>
+        </div>
+    </div>
 
     <!-- Modal de Login ---------------------------------------------------------------------->
 
-      <div class="login-modal" id="loginModal">
+    <div class="login-modal" id="loginModal">
         <div class="modal-content">
-            <button class="modal-close" id="modalClose">&times;</button>
+            <button class="modal-close" id="modalClose-log">&times;</button>
             <div class="modal-header">
                 <div class="modal-flag"></div>
-                <h2 class="modal-title"><img id = "imageLogin" src = "images/Icone sem fundo.png"> Log in</h2>
+                <h2 class="modal-title"><img id="imageLogin" src="images/Icone sem fundo.png"> Log in</h2>
             </div>
-            
+
             <form id="loginForm">
                 <div class="form-group">
                     <input type="email" class="form-input" placeholder="Email" required>
@@ -96,9 +98,9 @@
                 </div>
                 <button type="submit" class="login-button">LOGIN</button>
             </form>
-            
+
             <div class="no-account">
-                Não possui uma conta? <a href="#" id="createAccountLink">Crie uma</a>
+                Não possui uma conta? <a href="" id="createAccountLink">Crie uma</a>
             </div>
 
             <div class="divider">
@@ -110,26 +112,26 @@
             </button>
         </div>
     </div>
-    
+
     <!-- Modal de Signup ---------------------------------------------------------------------->
 
     <div class="signup-modal" id="signupModal">
         <div class="modal-content">
-            <button class="modal-close" id="modalClose">&times;</button>
+            <button class="modal-close" id="modalClose-sig">&times;</button>
             <div class="modal-header">
                 <div class="modal-flag"></div>
                 <h2 class="modal-title">Cadastre-se</h2>
             </div>
-            
+
             <form id="signupForm">
                 <div class="form-group">
                     <input type="text" class="form-input" id="firstName" placeholder="Nome" required>
                 </div>
-                
+
                 <div class="form-group">
                     <input type="email" class="form-input" id="email" placeholder="Email" required>
                 </div>
-                
+
                 <div class="form-group">
                     <input type="password" class="form-input" id="password" placeholder="Senha" required>
                     <div class="password-strength">
@@ -139,101 +141,115 @@
                         Mínimo 8 caracteres, incluindo letras, números e símbolos
                     </div>
                 </div>
-                
+
                 <div class="form-group">
-                    <input type="password" class="form-input" id="confirmPassword" placeholder="Confirmar Senha" required>
+                    <input type="password" class="form-input" id="confirmPassword" placeholder="Confirmar Senha"
+                        required>
                 </div>
-                
+
                 <div class="terms-checkbox">
                     <input type="checkbox" id="terms" required>
                     <label for="terms">
-                        Eu concordo com os <a href="#" target="_blank">Termos de Uso</a> e 
+                        Eu concordo com os <a href="#" target="_blank">Termos de Uso</a> e
                         <a href="#" target="_blank">Política de Privacidade</a>
                     </label>
                 </div>
-                
+
                 <button type="submit" class="signup-button" id="signupButton">CADASTRAR</button>
             </form>
-            
+
             <div class="has-account">
                 Já possui uma conta? <a href="#" id="loginLink">Faça login</a>
             </div>
 
             <div class="divider">
-                <span>Ou cadastre-se com serviços de terceiros</span>
+                <span>Ou cadastre-se com terceiros</span>
             </div>
-            
+
             <button class="google-signup" id="googleSignup">
                 <span class="google-icon">📺</span>
                 CADASTRAR COM GOOGLE
             </button>
         </div>
     </div>
-    <!---------------------------------------------------------------------------------------->  
+    <!---------------------------------------------------------------------------------------->
     <!--Página main ------------------------------------------------------------------------->
     <main class="main-content">
         <div class="hero-section">
             <h1 class="hero-title">Descubra seu novo local de lazer!</h1>
             <p class="hero-subtitle">Resultados incríveis, baseados em suas preferências</p>
         </div>
-    </main>  
-    
-    <!---------------------------------------------------------------------------------------->  
+    </main>
 
-  <script>
-    // Elementos
-    const menuToggle = document.getElementById('menuToggle');
-    const offcanvas = document.getElementById('offcanvas');
-    const overlay = document.getElementById('overlay');
-    const closeBtn = document.getElementById('closeBtn');
-    const loginModal = document.getElementById('loginModal');
-    const signupModal = document.getElementById('signupModal');
-    const modalClose = document.getElementById('modalClose');
-    const loginBtn = document.getElementById('loginBtn');
-    const loginForm = document.getElementById('loginForm');    
+    <!---------------------------------------------------------------------------------------->
 
-    // Abrir offcanvas
-    menuToggle.addEventListener('click', () => {
-        menuToggle.classList.add('active');
-        offcanvas.classList.add('show');
-        overlay.classList.add('show');
-        document.body.style.overflow = 'hidden';
-    });
+    <script>
+        // Elementos
+        const menuToggle = document.getElementById('menuToggle');
+        const offcanvas = document.getElementById('offcanvas');
+        const overlay = document.getElementById('overlay');
+        const closeBtn = document.getElementById('closeBtn');
+        const loginModal = document.getElementById('loginModal');
+        const signupModal = document.getElementById('signupModal');
+        const modalCloselog = document.getElementById('modalClose-log');
+        const modalClosesig = document.getElementById('modalClose-sig');
+        const loginBtn = document.getElementById('loginBtn');
+        const signupBtn = document.getElementById('signupBtn');
+        const loginForm = document.getElementById('loginForm');
 
-    // Fechar offcanvas
-    function closeOffcanvas() {
-        menuToggle.classList.remove('active');
-        offcanvas.classList.remove('show');
-        overlay.classList.remove('show');
-        document.body.style.overflow = 'auto';
-    }
 
-    closeBtn.addEventListener('click', closeOffcanvas);
-    overlay.addEventListener('click', closeOffcanvas);
+        window.addEventListener('DOMContentLoaded', () => {
+            loginModal.classList.remove('show');
+            signupModal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        });
 
-    // Fechar com ESC
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && offcanvas.classList.contains('show')) {
-            closeOffcanvas();
+        // Abrir offcanvas
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.add('active');
+            offcanvas.classList.add('show');
+            overlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Fechar offcanvas
+        function closeOffcanvas() {
+            menuToggle.classList.remove('active');
+            offcanvas.classList.remove('show');
+            overlay.classList.remove('show');
+            document.body.style.overflow = 'auto';
         }
-    });
 
-    // Botões de auth
-    loginBtn.addEventListener('click', () => {
+        closeBtn.addEventListener('click', closeOffcanvas);
+        overlay.addEventListener('click', closeOffcanvas);
+
+        // Fechar com ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && offcanvas.classList.contains('show')) {
+                closeOffcanvas();
+            }
+        });
+
+        // Botão de Login
+        loginBtn.addEventListener('click', () => {
             loginModal.classList.add('show');
             document.body.style.overflow = 'hidden';
+        });
+
+        // Botão de Signup
+        signupBtn.addEventListener('click', () => {
             signupModal.classList.add('show');
             document.body.style.overflow = 'hidden';
-    });
-  
+        });
 
-    // Modal de Login
-    function closeLoginModal() {
+
+        // Modal de Login
+        function closeLoginModal() {
             loginModal.classList.remove('show');
             document.body.style.overflow = 'auto';
         }
 
-        modalClose.addEventListener('click', closeLoginModal);
+        modalCloselog.addEventListener('click', closeLoginModal);
 
         loginModal.addEventListener('click', (e) => {
             if (e.target === loginModal) {
@@ -241,14 +257,26 @@
             }
         });
 
+        // Modal de Login
+        function closeSignupModal() {
+            signupModal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        modalClosesig.addEventListener('click', closeSignupModal);
+
+        signupModal.addEventListener('click', (e) => {
+            if (e.target === signupModal) {
+                closeSignupModal();
+            }
+        });
+
         // Fechar modal com ESC
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
-                if (loginModal.classList.contains('show')) {
-                    closeLoginModal();
-                } else if (offcanvas.classList.contains('show')) {
-                    closeOffcanvas();
-                }
+                if (loginModal.classList.contains('show')) closeLoginModal();
+                if (signupModal.classList.contains('show')) closeSignupModal();
+                if (offcanvas.classList.contains('show')) closeOffcanvas();
             }
         });
 
@@ -257,6 +285,95 @@
             e.preventDefault();
             alert('Login funcionaria aqui!');
             closeLoginModal();
+        });
+        // Validação de senha em tempo real
+        document.getElementById('password').addEventListener('input', function () {
+            const password = this.value;
+            const strengthBar = document.getElementById('passwordStrengthBar');
+
+            let strength = 0;
+
+            // Verificar critérios de força da senha
+            if (password.length >= 8) strength++;
+            if (/[a-z]/.test(password)) strength++;
+            if (/[A-Z]/.test(password)) strength++;
+            if (/[0-9]/.test(password)) strength++;
+            if (/[^A-Za-z0-9]/.test(password)) strength++;
+
+            // Aplicar classes baseadas na força
+            strengthBar.className = 'password-strength-bar';
+            if (strength <= 2) {
+                strengthBar.classList.add('weak');
+            } else if (strength <= 4) {
+                strengthBar.classList.add('medium');
+            } else {
+                strengthBar.classList.add('strong');
+            }
+        });
+
+        // Validação de confirmação de senha
+        document.getElementById('confirmPassword').addEventListener('input', function () {
+            const password = document.getElementById('password').value;
+            const confirmPassword = this.value;
+
+            if (password !== confirmPassword) {
+                this.style.borderColor = '#e74c3c';
+            } else {
+                this.style.borderColor = '#4ECDC4';
+            }
+        });
+
+        // Validação do formulário
+        document.getElementById('signupForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const terms = document.getElementById('terms').checked;
+
+            // Validações
+            if (password !== confirmPassword) {
+                alert('As senhas não coincidem!');
+                return;
+            }
+
+            if (password.length < 8) {
+                alert('A senha deve ter pelo menos 8 caracteres!');
+                return;
+            }
+
+            if (!terms) {
+                alert('Você deve aceitar os termos de uso!');
+                return;
+            }
+
+            // Aqui você faria a requisição para o servidor
+            alert('Cadastro realizado com sucesso!');
+            closeSignupModal();
+        });
+
+        // Link para login
+        document.getElementById('loginLink').addEventListener('click', function (e) {
+            e.preventDefault();
+            closeSignupModal();
+            // Aqui você abriria o modal de login
+            console.log('Abrir modal de login');
+        });
+
+        //Link do Modal Login para o Signup
+        document.getElementById('createAccountLink').addEventListener('click', function (e) {
+        e.preventDefault();
+        closeLoginModal(); // Fecha o login
+        signupModal.classList.add('show'); // Abre o cadastro
+        document.body.style.overflow = 'hidden'; // Evita scroll no fundo
+        });
+
+        //Botão Login OffCanvas
+        document.getElementById('loginOffcanvas').addEventListener('click', function (e) {
+        e.preventDefault();
+        closeOffcanvas();
+        loginModal.classList.add('show'); // Abre o cadastro
+        document.body.style.overflow = 'hidden'; // Evita scroll no fundo
         });
 
         // Botão Google
@@ -267,45 +384,46 @@
     </script>
     <!---------------------------------------------------------------------------------------->
     <!-- Container do explorar---------------------------------------------------------------->
-    
+
     <!---------------------------------------------------------------------------------------->
     <!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
+    <script>
+        // <![CDATA[  <-- For SVG support
+        if ('WebSocket' in window) {
+            (function () {
+                function refreshCSS() {
+                    var sheets = [].slice.call(document.getElementsByTagName("link"));
+                    var head = document.getElementsByTagName("head")[0];
+                    for (var i = 0; i < sheets.length; ++i) {
+                        var elem = sheets[i];
+                        var parent = elem.parentElement || head;
+                        parent.removeChild(elem);
+                        var rel = elem.rel;
+                        if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                        }
+                        parent.appendChild(elem);
+                    }
+                }
+                var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+                var address = protocol + window.location.host + window.location.pathname + '/ws';
+                var socket = new WebSocket(address);
+                socket.onmessage = function (msg) {
+                    if (msg.data == 'reload') window.location.reload();
+                    else if (msg.data == 'refreshcss') refreshCSS();
+                };
+                if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                    console.log('Live reload enabled.');
+                    sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+                }
+            })();
+        }
+        else {
+            console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+        }
+        // ]]>
+    </script>
 </body>
+
 </html>
