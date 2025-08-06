@@ -7,86 +7,505 @@
     <title>Local Seek</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="CSS/style.css" rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
+    <style>
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 70vh;
+            background-image: url(images/Carrosel1.jpg);
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .hero-cta {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--success) 100%);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 25px rgba(16, 206, 190, 0.3);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(16, 206, 190, 0.4);
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 5rem 2rem;
+            background: white;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Footer Compacto */
+        .footer {
+            background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+            color: white;
+            padding: 2rem 0 1rem;
+            margin-top: auto;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(45deg, #10cebe, #4cc9f0);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .brand-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #10cebe;
+        }
+
+        .footer-description {
+            font-size: 0.85rem;
+            color: #e8eaed;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .social-links a:hover {
+            background: #10cebe;
+            transform: translateY(-2px);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-links h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #10cebe;
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .footer-links a {
+            color: #e8eaed;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #10cebe;
+            padding-left: 5px;
+        }
+
+        .footer-contact h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #10cebe;
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #e8eaed;
+        }
+
+        .contact-item i {
+            margin-right: 8px;
+            color: #10cebe;
+            width: 14px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .copyright {
+            color: #b8cacc;
+            font-size: 0.8rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-bottom-links a {
+            color: #b8cacc;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom-links a:hover {
+            color: #10cebe;
+        }
+
+        /* Modal Styles */
+        .login-modal, .signup-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 2000;
+        }
+
+        .login-modal.show, .signup-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: #2c3e50;
+            border-radius: 8px;
+            padding: 2rem;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .login-modal.show .modal-content, .signup-modal.show .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: #bdc3c7;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: white;
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .modal-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: #34495e;
+            border: 2px solid #34495e;
+            border-radius: 4px;
+            color: white;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #4ECDC4;
+        }
+
+        .form-input::placeholder {
+            color: #95a5a6;
+        }
+
+        .login-button, .signup-button {
+            width: 100%;
+            background: #34495e;
+            color: #95a5a6;
+            border: none;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .login-button:hover, .signup-button:hover {
+            background: #3a5169;
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .logo-text {
+                font-size: 1.4rem;
+            }
+
+            .auth-buttons {
+                gap: 8px;
+            }
+
+            .login-btn, .signup-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .about-content h2 {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .brand-info {
+                justify-content: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.8rem;
+            }
+
+            .footer-bottom-links {
+                order: -1;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-cta {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+
+            .about-section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- NavBar ------------------------------------------------------------------------------->
-    <nav class="navbar">
-        <div class="nav-content">
-            <!-- Menu Hamburger - Esquerda -->
-            <button class="menu-toggle" id="menuToggle">
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
-            </button>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Descubra seu novo local de lazer!</h1>
+            <p class="hero-subtitle">Resultados incríveis, baseados em suas preferências</p>
+            <button class="hero-cta">Começar Agora</button>
+        </div>
+    </section>
 
-            <!-- Logo - Centro -->
-            <a href="#" class="logo"><img id="logoimage" src="images/Logo sem fundo.png"></a>
-            <!-- Botões Login/Signup - Direita -->
-            <div class="auth-buttons">
-                <button class="login-btn" id="loginBtn">Entrar</button>
-                <button class="signup-btn" id="signupBtn">Registrar-se</button>
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-content">
+                <h2>Acerca de nós:</h2>
+                <p class="about-text">
+                    Somos uma equipe dedicada a transformar seus sonhos em realidade, proporcionando experiências únicas e inesquecíveis.
+                </p>
+            </div>
+            <div class="about-image">
+                Experiências Únicas
             </div>
         </div>
-    </nav>
+    </section>
 
-    <!-- Overlay -->
-    <div class="overlay" id="overlay"></div>
-
-    <!-- Offcanvas Sidebar -->
-    <div class="offcanvas" id="offcanvas">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title">Local Seek</h5>
-            <button class="close-btn" id="closeBtn">&times;</button>
-        </div>
-        <div class="offcanvas-body">
-
-            <div class="menu-section">
-                <div class="menu-section-title">Páginas</div>
-                <a href="#" class="menu-item">
-                    <i class="icon">🏠</i>
-                    Página Inicial
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="icon">💡</i>
-                    Descubra sua viagem
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="icon">📋</i>
-                    Histórico
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="icon">❓</i>
-                    Sobre Nós
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="icon">📞</i>
-                    Contato
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="icon">ℹ️</i>
-                    Login
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal de Login ---------------------------------------------------------------------->
+    <!-- Modals -->
     <div class="login-modal" id="loginModal">
         <div class="modal-content">
-            <button class="modal-close" id="modalClose">&times;</button>
+            <button class="modal-close" id="modalClose-log">&times;</button>
             <div class="modal-header">
-                <div class="modal-flag"><svg xmlns="http://www.w3.org/2000/svg" height="4vh" viewBox="0 -960 960 960"
-                        width="3vw" fill="#FFFFFF">
-                        <path
-                            d="m300-300 280-80 80-280-280 80-80 280Zm180-120q-25 0-42.5-17.5T420-480q0-25 17.5-42.5T480-540q25 0 42.5 17.5T540-480q0 25-17.5 42.5T480-420Zm0 340q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Zm0-320Z" />
-                    </svg></div>
-                <h2 class="modal-title">Log in</h2>
+                <h2 class="modal-title">Login</h2>
             </div>
-
             <form id="loginForm">
                 <div class="form-group">
                     <input type="email" class="form-input" placeholder="Email" required>
@@ -94,35 +513,95 @@
                 <div class="form-group">
                     <input type="password" class="form-input" placeholder="Senha" required>
                 </div>
-                <div class="forgot-password">
-                    <a href="#">ESQUECEU A SENHA?</a>
-                </div>
                 <button type="submit" class="login-button">LOGIN</button>
             </form>
-
-            <div class="no-account">
-                Sem conta ainda? <a href="#" id="createAccountLink">Crie uma</a>
-            </div>
-
-            <div class="divider">
-                <span>Ou login com </span>
-            </div>
-
-            <button class="google-login" id="googleLogin">
-                <span class="google-icon">📺</span>
-                LOGIN COM GOOGLE
-            </button>
         </div>
     </div>
 
-    <main class="main-content">
-        <div class="hero-section">
-            <h1 class="hero-title">Descubra seu novo local de lazer!</h1>
-            <p class="hero-subtitle">Resultados incríveis, baseados em suas preferências</p>
-            <button class="cta-button">Começar a explorar</button>
+    <div class="signup-modal" id="signupModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose-sig">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Cadastre-se</h2>
+            </div>
+            <form id="signupForm">
+                <div class="form-group">
+                    <input type="text" class="form-input" placeholder="Nome" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-input" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-input" placeholder="Senha" required>
+                </div>
+                <button type="submit" class="signup-button">CADASTRAR</button>
+            </form>
         </div>
-    </main>
-    <!---------------------------------------------------------------------------------------->
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand-info">
+                        <div class="logo-icon">LS</div>
+                        <div class="brand-name">Local Seek</div>
+                    </div>
+                    <p class="footer-description">
+                        Descubra os melhores locais de lazer com recomendações personalizadas.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Sobre</a></li>
+                        <li><a href="#">Consultas</a></li>
+                        <li><a href="#">Histórico</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contato</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            contato@localseek.com
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            (11) 9999-9999
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            São Paulo, SP
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2025 Local Seek. Todos os direitos reservados.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacidade</a>
+                    <a href="#">Termos</a>
+                    <a href="#">FAQ</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script>
         // Elementos
         const menuToggle = document.getElementById('menuToggle');
@@ -130,9 +609,18 @@
         const overlay = document.getElementById('overlay');
         const closeBtn = document.getElementById('closeBtn');
         const loginModal = document.getElementById('loginModal');
-        const modalClose = document.getElementById('modalClose');
+        const signupModal = document.getElementById('signupModal');
+        const modalCloselog = document.getElementById('modalClose-log');
+        const modalClosesig = document.getElementById('modalClose-sig');
         const loginBtn = document.getElementById('loginBtn');
+        const signupBtn = document.getElementById('signupBtn');
         const loginForm = document.getElementById('loginForm');
+
+        window.addEventListener('DOMContentLoaded', () => {
+            loginModal.classList.remove('show');
+            signupModal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        });
 
         // Abrir offcanvas
         menuToggle.addEventListener('click', () => {
@@ -153,29 +641,25 @@
         closeBtn.addEventListener('click', closeOffcanvas);
         overlay.addEventListener('click', closeOffcanvas);
 
-        // Fechar com ESC
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && offcanvas.classList.contains('show')) {
-                closeOffcanvas();
-            }
-        });
-
-        // Botões de auth
+        // Botão de Login
         loginBtn.addEventListener('click', () => {
             loginModal.classList.add('show');
             document.body.style.overflow = 'hidden';
         });
-        document.getElementById('signupBtn').addEventListener('click', () => {
-            alert('Funcionalidade de Sign Up seria implementada aqui!');
+
+        // Botão de Signup
+        signupBtn.addEventListener('click', () => {
+            signupModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
         });
 
-        // Modal de Login
+        // Modal de Login - Close
         function closeLoginModal() {
             loginModal.classList.remove('show');
             document.body.style.overflow = 'auto';
         }
 
-        modalClose.addEventListener('click', closeLoginModal);
+        modalCloselog.addEventListener('click', closeLoginModal);
 
         loginModal.addEventListener('click', (e) => {
             if (e.target === loginModal) {
@@ -183,91 +667,8 @@
             }
         });
 
-        // Fechar modal com ESC
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                if (loginModal.classList.contains('show')) {
-                    closeLoginModal();
-                } else if (offcanvas.classList.contains('show')) {
-                    closeOffcanvas();
-                }
-            }
-        });
-
-        // Form de Login
-        loginForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Login funcionaria aqui!');
-            closeLoginModal();
-        });
-
-        // Botão Google
-        document.getElementById('googleLogin').addEventListener('click', () => {
-            alert('Login com Google funcionaria aqui!');
-        });
-
-        // Link Create Account
-        document.getElementById('createAccountLink').addEventListener('click', (e) => {
-            e.preventDefault();
-            closeLoginModal();
-            alert('Modal de Sign Up seria aberto aqui!');
-        });
-    </script>
-    <!---------------------------------------------------------------------------------------->
-    <!-- Container do explorar---------------------------------------------------------------->
-    <div class="container">
-        <div class="header">
-            <h1>Descubra seu novo local de lazer!</h1>
-            <p>Resultados imediatos, baseados em suas preferências</p>
-        </div>
-
-        <div class="discover-section">
-            <h2 class="section-title"><i class="fas fa-search"></i> Descobrir</h2>
-            <div class="discover-content">
-                <p>Explore mais opções e recursos disponíveis</p>
-                <button class="discover-btn">Começar a explorar</button>
-            </div>
-        </div>
-    </div>
-    <!---------------------------------------------------------------------------------------->
-    <!-- Code injected by live-server -->
-    <script>
-        // <![CDATA[  <-- For SVG support
-        if ('WebSocket' in window) {
-            (function () {
-                function refreshCSS() {
-                    var sheets = [].slice.call(document.getElementsByTagName("link"));
-                    var head = document.getElementsByTagName("head")[0];
-                    for (var i = 0; i < sheets.length; ++i) {
-                        var elem = sheets[i];
-                        var parent = elem.parentElement || head;
-                        parent.removeChild(elem);
-                        var rel = elem.rel;
-                        if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-                            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-                            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-                        }
-                        parent.appendChild(elem);
-                    }
-                }
-                var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-                var address = protocol + window.location.host + window.location.pathname + '/ws';
-                var socket = new WebSocket(address);
-                socket.onmessage = function (msg) {
-                    if (msg.data == 'reload') window.location.reload();
-                    else if (msg.data == 'refreshcss') refreshCSS();
-                };
-                if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-                    console.log('Live reload enabled.');
-                    sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-                }
-            })();
+        // Modal de Signup - Close
+        function closeSignupModal() {
+            signupModal.classList.remove('show');
+            document.body.style.overflow = 'auto';
         }
-        else {
-            console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-        }
-        // ]]>
-    </script>
-</body>
-
-</html>

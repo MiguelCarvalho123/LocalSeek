@@ -10,6 +10,7 @@ const modalClosesig = document.getElementById('modalClose-sig');
 const loginBtn = document.getElementById('loginBtn');
 const signupBtn = document.getElementById('signupBtn');
 const loginForm = document.getElementById('loginForm');
+const btnMainpage = document.getElementById('mainPageButton')
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -64,6 +65,11 @@ signupBtn.addEventListener('click', () => {
     document.body.style.overflow = 'hidden';
 });
 
+// Botão do Meio da Página
+btnMainpage.addEventListener('click', () => {
+    loginModal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+});
 
 // Modal de Login - Close
 function closeLoginModal() {
