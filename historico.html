@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalSeek</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="CSS/style.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
+    <script src="scripts/main.js" defer></script>
+</head>
+<body>
+    <!-- NavBar ------------------------------------------------------------------------------->
+    <nav class="navbar">
+        <div class="nav-content">
+            <!-- Menu Hamburger - Esquerda -->
+            <button class="menu-toggle" id="menuToggle">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </button>
+            <!-- Logo - Centro -->
+            <a href="#" class="logo"><img id="logoimage" src="images/Logo sem fundo.png"></a>
+
+            <div class="auth-buttons">
+                <button class="login-btn" id="loginBtn">Perfil</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Offcanvas Sidebar -->
+    <div class="offcanvas" id="offcanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Local Seek</h5>
+            <button class="close-btn" id="closeBtn">&times;</button>
+        </div>
+        <div class="offcanvas-body">
+            <a href="" class="menu-item" id="loginOffcanvas">
+                <i class="icon"><img id="dropdownicon" src="images/icon2.png"></i>
+                <p id="textIcon">Login</p>
+            </a>
+            <br>
+            <div class="menu-section">
+                <div class="menu-section-title">Páginas</div>
+                <a href="#" class="menu-item">
+                    <i class="icon"><img id="dropdownicon" src="images/icon3.png"></i>
+                    <p id="textIcon">Página Inicial</p>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="icon"><img id="dropdownicon" src="images/icon4.png"></i>
+                    <p id="textIcon">Descubra sua viagem</p>
+                </a>
+                <a href="historico.html" class="menu-item">
+                    <i class="icon"><img id="dropdownicon" src="images/icon6.png"></i>
+                    <p id="textIcon">Histórico</p>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="icon"><img id="dropdownicon" src="images/icon5.png"></i>
+                    <p id="textIcon">Sobre Nós</p>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="icon"><img id="dropdownicon" src="images/icon1.png"></i>
+                    <p id="textIcon">Contato</p>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <!------------------------------------ Conteúdo Principal da Página --------------------------------------------------->
+
+    <main class="main-content">
+        <section class="hero-section-historico">
+            <h1 class="hero-title-historico">Meu Histórico de Viagens</h1>
+            <p class="hero-subtitle-historico">Acompanhe suas pesquisas, destinos favoritos e lugares visitados</p>
+            
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Buscar no histórico...">
+            </div>
+        </section>
+
+        <div class="tabs">
+            <div class="tab active">Pesquisas</div>
+            <div class="tab">Favoritos</div>
+            <div class="tab">Visitados</div>
+        </div>
+
+        <div class="content-card">
+            <div class="section-header">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+                <div class="section-info">
+                    <h2>Histórico de Pesquisas</h2>
+                    <p>Suas últimas pesquisas por destinos de viagem</p>
+                </div>
+            </div>
+
+            <div class="search-item">
+                <div class="search-details">
+                    <div class="search-title">Destinos românticos na Europa</div>
+                    <div class="search-meta">
+                        <div class="date-info">
+                            <svg class="calendar-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.89-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.11-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                            </svg>
+                            <span>14/01/2024</span>
+                        </div>
+                        <span class="results-count">12 resultados</span>
+                        <span class="saved-tag">Salvo</span>
+                    </div>
+                </div>
+                <div class="search-actions">
+                    <button class="search-again-btn">Buscar Novamente</button>
+                    <button class="delete-btn">🗑️</button>
+                </div>
+            </div>
+
+            <div class="search-item">
+                <div class="search-details">
+                    <div class="search-title">Viagem em família para praia</div>
+                    <div class="search-meta">
+                        <div class="date-info">
+                            <svg class="calendar-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.89-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.11-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                            </svg>
+                            <span>09/01/2024</span>
+                        </div>
+                        <span class="results-count">8 resultados</span>
+                    </div>
+                </div>
+                <div class="search-actions">
+                    <button class="search-again-btn">Buscar Novamente</button>
+                    <button class="delete-btn">🗑️</button>
+                </div>
+            </div>
+
+            <div class="search-item">
+                <div class="search-details">
+                    <div class="search-title">Aventura nas montanhas</div>
+                    <div class="search-meta">
+                        <div class="date-info">
+                            <svg class="calendar-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.89-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.11-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                            </svg>
+                            <span>04/01/2024</span>
+                        </div>
+                        <span class="results-count">15 resultados</span>
+                        <span class="saved-tag">Salvo</span>
+                    </div>
+                </div>
+                <div class="search-actions">
+                    <button class="search-again-btn">Buscar Novamente</button>
+                    <button class="delete-btn">🗑️</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Tab functionality
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Search again functionality
+        document.querySelectorAll('.search-again-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const title = this.closest('.search-item').querySelector('.search-title').textContent;
+                alert(`Iniciando nova busca: ${title}`);
+            });
+        });
+
+        // Delete functionality
+        document.querySelectorAll('.delete-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const item = this.closest('.search-item');
+                const title = item.querySelector('.search-title').textContent;
+                if (confirm(`Remover "${title}" do histórico?`)) {
+                    item.style.transition = 'all 0.3s ease';
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateX(20px)';
+                    setTimeout(() => item.remove(), 300);
+                }
+            });
+        });
+
+        // Search functionality
+        document.querySelector('.search-input').addEventListener('input', function() {
+            const term = this.value.toLowerCase();
+            document.querySelectorAll('.search-item').forEach(item => {
+                const title = item.querySelector('.search-title').textContent.toLowerCase();
+                item.style.display = title.includes(term) ? 'flex' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
