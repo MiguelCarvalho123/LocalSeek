@@ -3,205 +3,726 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LocalSeek</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="CSS/style.css" rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
-    <script src="scripts/main.js"></script>
+    <title>Dashboard - Local Seek</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8fafc;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 0.75rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: #6366f1;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #6366f1;
+        }
+
+        .nav-menu a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -0.75rem;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #6366f1;
+            border-radius: 1px;
+        }
+
+        /* Profile Dropdown */
+        .profile-dropdown {
+            position: relative;
+        }
+
+        .profile-trigger {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .profile-trigger:hover {
+            background: #f8fafc;
+        }
+
+        .profile-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-avatar::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            padding: 2px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: subtract;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .profile-trigger:hover .profile-avatar::after {
+            opacity: 1;
+        }
+
+        .profile-info {
+            text-align: left;
+        }
+
+        .profile-name {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 0.9rem;
+        }
+
+        .profile-email {
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        .dropdown-arrow {
+            margin-left: 0.5rem;
+            color: #64748b;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-trigger.active .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            right: 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e2e8f0;
+            min-width: 280px;
+            padding: 0.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px) scale(0.95);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+        }
+
+        .dropdown-menu.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .dropdown-header {
+            padding: 1rem 1rem 0.75rem;
+            border-bottom: 1px solid #f1f5f9;
+            margin-bottom: 0.5rem;
+        }
+
+        .dropdown-user-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .dropdown-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .dropdown-user-details h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.25rem;
+        }
+
+        .dropdown-user-details p {
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            color: #374151;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            margin: 0.125rem 0;
+        }
+
+        .dropdown-item:hover {
+            background: #f8fafc;
+            color: #6366f1;
+            transform: translateX(4px);
+        }
+
+        .dropdown-item.danger:hover {
+            background: #fef2f2;
+            color: #dc2626;
+        }
+
+        .dropdown-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .dropdown-divider {
+            height: 1px;
+            background: #f1f5f9;
+            margin: 0.5rem 0;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .welcome-section {
+            margin-bottom: 3rem;
+        }
+
+        .welcome-badge {
+            display: inline-block;
+            background: #6366f1;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .welcome-title {
+            font-size: clamp(1.875rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .welcome-description {
+            font-size: 1.1rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .explore-btn {
+            background: #6366f1;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .explore-btn:hover {
+            background: #4f46e5;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: white;
+            padding: 3rem 0 2rem;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #6366f1;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .footer-section h4 {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #64748b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #6366f1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #f1f5f9;
+            color: #64748b;
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: #64748b;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 1rem;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+                gap: 0;
+            }
+
+            .nav-menu.show {
+                display: flex;
+            }
+
+            .nav-menu a {
+                padding: 0.75rem 0;
+                border-bottom: 1px solid #f1f5f9;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .profile-info {
+                display: none;
+            }
+
+            .dropdown-menu {
+                right: -1rem;
+                left: -1rem;
+                min-width: auto;
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown-menu.show {
+            animation: slideDown 0.3s ease-out;
+        }
+
+        /* Online status indicator */
+        .status-indicator {
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            width: 12px;
+            height: 12px;
+            background: #10b981;
+            border: 2px solid white;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- NavBar ------------------------------------------------------------------------------->
-    <nav class="navbar">
-        <div class="nav-content">
-            <!-- Menu Hamburger - Esquerda -->
-            <button class="menu-toggle" id="menuToggle">
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
-            </button>
-            <!-- Logo - Centro -->
-            <a href="#" class="logo"><img id="logoimage" src="images/Logo sem fundo.png"></a>
-
-            <div class="auth-buttons">
-                <button class="login-btn" id="loginBtn">Perfil</button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Overlay -->
-    <div class="overlay" id="overlay"></div>
-
-    <!-- Offcanvas Sidebar -->
-    <div class="offcanvas" id="offcanvas">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title">Local Seek</h5>
-            <button class="close-btn" id="closeBtn">&times;</button>
-        </div>
-        <div class="offcanvas-body">
-            <a href="" class="menu-item" id="loginOffcanvas">
-                <i class="icon"><img id="dropdownicon" src="images/icon2.png"></i>
-                <p id="textIcon">Login</p>
-            </a>
-            <br>
-            <div class="menu-section">
-                <div class="menu-section-title">Páginas</div>
-                <a href="#" class="menu-item">
-                    <i class="icon"><img id="dropdownicon" src="images/icon3.png"></i>
-                    <p id="textIcon">Página Inicial</p>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="icon"><img id="dropdownicon" src="images/icon4.png"></i>
-                    <p id="textIcon">Descubra sua viagem</p>
-                </a>
-                <a href="historico.html" class="menu-item">
-                    <i class="icon"><img id="dropdownicon" src="images/icon6.png"></i>
-                    <p id="textIcon">Histórico</p>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="icon"><img id="dropdownicon" src="images/icon5.png"></i>
-                    <p id="textIcon">Sobre Nós</p>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="icon"><img id="dropdownicon" src="images/icon1.png"></i>
-                    <p id="textIcon">Contato</p>
-                </a>
-
-            </div>
-        </div>
-    </div>
-
-    <!------------------------------------ Conteúdo Principal da Página --------------------------------------------------->
-
-    <main class="main-content">
-        <section class="hero-section-historico">
-            <h1 class="hero-title-historico">Meu Histórico de Viagens</h1>
-            <p class="hero-subtitle-historico">Acompanhe suas pesquisas, destinos favoritos e lugares visitados</p>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo">Local Seek</a>
             
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Buscar no histórico...">
-            </div>
-        </section>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#" onclick="showFeature('sugestoes')">Sugestões de Viagens</a></li>
+                    <li><a href="#" onclick="showFeature('historico')">Histórico de Viagens</a></li>
+                </ul>
+            </nav>
 
-        <div class="tabs">
-            <div class="tab active">Pesquisas</div>
-            <div class="tab">Favoritos</div>
-            <div class="tab">Visitados</div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">
+                ☰
+            </button>
+
+            <!-- Profile Dropdown -->
+            <div class="profile-dropdown">
+                <button class="profile-trigger" id="profileTrigger" onclick="toggleProfileDropdown()">
+                    <div class="profile-avatar">
+                        B
+                        <div class="status-indicator"></div>
+                    </div>
+                    <div class="profile-info">
+                        <div class="profile-name">bvc</div>
+                        <div class="profile-email">fdgd@$DAD</div>
+                    </div>
+                    <span class="dropdown-arrow">▼</span>
+                </button>
+
+                <div class="dropdown-menu" id="profileDropdown">
+                    <div class="dropdown-header">
+                        <div class="dropdown-user-info">
+                            <div class="dropdown-avatar">B</div>
+                            <div class="dropdown-user-details">
+                                <h3>bvc</h3>
+                                <p>fdgd@$DAD</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#" class="dropdown-item" onclick="showFeature('perfil')">
+                        <span class="dropdown-icon">👤</span>
+                        Perfil
+                    </a>
+
+                    <a href="#" class="dropdown-item" onclick="showFeature('configuracoes')">
+                        <span class="dropdown-icon">⚙️</span>
+                        Configurações
+                    </a>
+
+                    <div class="dropdown-divider"></div>
+
+                    <a href="#" class="dropdown-item" onclick="showFeature('ajuda')">
+                        <span class="dropdown-icon">❓</span>
+                        Ajuda e Suporte
+                    </a>
+
+                    <a href="#" class="dropdown-item" onclick="showFeature('feedback')">
+                        <span class="dropdown-icon">💬</span>
+                        Enviar Feedback
+                    </a>
+
+                    <div class="dropdown-divider"></div>
+
+                    <a href="#" class="dropdown-item danger" onclick="logout()">
+                        <span class="dropdown-icon">🚪</span>
+                        Sair
+                    </a>
+                </div>
+            </div>
         </div>
+    </header>
 
-        <div class="content-card">
-            <div class="section-header">
-                <svg class="search-icon" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-                </svg>
-                <div class="section-info">
-                    <h2>Histórico de Pesquisas</h2>
-                    <p>Suas últimas pesquisas por destinos de viagem</p>
-                </div>
-            </div>
-
-            <div class="search-item">
-                <div class="search-details">
-                    <div class="search-title">Destinos românticos na Europa</div>
-                    <div class="search-meta">
-                        <div class="date-info">
-                            <svg class="calendar-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.89-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.11-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-                            </svg>
-                            <span>14/01/2024</span>
-                        </div>
-                        <span class="results-count">12 resultados</span>
-                        <span class="saved-tag">Salvo</span>
-                    </div>
-                </div>
-                <div class="search-actions">
-                    <button class="search-again-btn">Buscar Novamente</button>
-                    <button class="delete-btn">🗑️</button>
-                </div>
-            </div>
-
-            <div class="search-item">
-                <div class="search-details">
-                    <div class="search-title">Viagem em família para praia</div>
-                    <div class="search-meta">
-                        <div class="date-info">
-                            <svg class="calendar-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.89-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.11-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-                            </svg>
-                            <span>09/01/2024</span>
-                        </div>
-                        <span class="results-count">8 resultados</span>
-                    </div>
-                </div>
-                <div class="search-actions">
-                    <button class="search-again-btn">Buscar Novamente</button>
-                    <button class="delete-btn">🗑️</button>
-                </div>
-            </div>
-
-            <div class="search-item">
-                <div class="search-details">
-                    <div class="search-title">Aventura nas montanhas</div>
-                    <div class="search-meta">
-                        <div class="date-info">
-                            <svg class="calendar-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.89-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.11-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-                            </svg>
-                            <span>04/01/2024</span>
-                        </div>
-                        <span class="results-count">15 resultados</span>
-                        <span class="saved-tag">Salvo</span>
-                    </div>
-                </div>
-                <div class="search-actions">
-                    <button class="search-again-btn">Buscar Novamente</button>
-                    <button class="delete-btn">🗑️</button>
-                </div>
-            </div>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="welcome-section">
+            <div class="welcome-badge">Nenhum</div>
+            <h1 class="welcome-title">destino visualizado ainda</h1>
+            <p class="welcome-description">
+                Comece explorando destinos para vê-los aparecer aqui
+            </p>
+            <a href="#" class="explore-btn" onclick="exploreDestinations()">
+                Explorar destinos
+            </a>
         </div>
     </main>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Local Seek</h3>
+                    <p>Descubra destinos incríveis personalizados para suas preferências de viagem.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#" onclick="showFeature('sobre')">Sobre nós</a></li>
+                        <li><a href="#" onclick="showFeature('carreiras')">Carreiras</a></li>
+                        <li><a href="#" onclick="showFeature('imprensa')">Imprensa</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Suporte</h4>
+                    <ul>
+                        <li><a href="#" onclick="showFeature('central-ajuda')">Central de ajuda</a></li>
+                        <li><a href="#" onclick="showFeature('contato')">Contato</a></li>
+                        <li><a href="#" onclick="showFeature('faq')">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#" onclick="showFeature('privacidade')">Privacidade</a></li>
+                        <li><a href="#" onclick="showFeature('termos')">Termos</a></li>
+                        <li><a href="#" onclick="showFeature('cookies')">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Local Seek. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        // Tab functionality
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-            });
+        // Profile Dropdown
+        let profileDropdownOpen = false;
+
+        function toggleProfileDropdown() {
+            const dropdown = document.getElementById('profileDropdown');
+            const trigger = document.getElementById('profileTrigger');
+            
+            profileDropdownOpen = !profileDropdownOpen;
+            
+            if (profileDropdownOpen) {
+                dropdown.classList.add('show');
+                trigger.classList.add('active');
+            } else {
+                dropdown.classList.remove('show');
+                trigger.classList.remove('active');
+            }
+        }
+
+        // Mobile Menu
+        let mobileMenuOpen = false;
+
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('navMenu');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            
+            mobileMenuOpen = !mobileMenuOpen;
+            
+            if (mobileMenuOpen) {
+                navMenu.classList.add('show');
+                mobileMenuBtn.textContent = '✕';
+            } else {
+                navMenu.classList.remove('show');
+                mobileMenuBtn.textContent = '☰';
+            }
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(event) {
+            const profileDropdown = document.getElementById('profileDropdown');
+            const profileTrigger = document.getElementById('profileTrigger');
+            const navMenu = document.getElementById('navMenu');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+
+            // Close profile dropdown
+            if (!profileTrigger.contains(event.target) && profileDropdownOpen) {
+                profileDropdown.classList.remove('show');
+                profileTrigger.classList.remove('active');
+                profileDropdownOpen = false;
+            }
+
+            // Close mobile menu
+            if (!navMenu.contains(event.target) && !mobileMenuBtn.contains(event.target) && mobileMenuOpen) {
+                navMenu.classList.remove('show');
+                mobileMenuBtn.textContent = '☰';
+                mobileMenuOpen = false;
+            }
         });
 
-        // Search again functionality
-        document.querySelectorAll('.search-again-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const title = this.closest('.search-item').querySelector('.search-title').textContent;
-                alert(`Iniciando nova busca: ${title}`);
-            });
+        // Feature functions
+        function showFeature(feature) {
+            console.log(`Navegando para: ${feature}`);
+            alert(`Funcionalidade "${feature}" seria implementada aqui.`);
+            
+            // Close any open dropdowns
+            if (profileDropdownOpen) {
+                toggleProfileDropdown();
+            }
+            if (mobileMenuOpen) {
+                toggleMobileMenu();
+            }
+        }
+
+        function exploreDestinations() {
+            console.log('Explorando destinos...');
+            alert('Redirecionando para página de exploração de destinos!');
+        }
+
+        function logout() {
+            if (confirm('Tem certeza que deseja sair?')) {
+                console.log('Fazendo logout...');
+                alert('Saindo... Redirecionando para página inicial.');
+                window.location.href = "teste.html"
+                // Em uma aplicação real, faria logout e redirecionaria
+            }
+        }
+
+        // Add smooth scrolling and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add entrance animation to main content
+            const mainContent = document.querySelector('.main-content');
+            mainContent.style.opacity = '0';
+            mainContent.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                mainContent.style.transition = 'all 0.6s ease-out';
+                mainContent.style.opacity = '1';
+                mainContent.style.transform = 'translateY(0)';
+            }, 100);
         });
 
-        // Delete functionality
-        document.querySelectorAll('.delete-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const item = this.closest('.search-item');
-                const title = item.querySelector('.search-title').textContent;
-                if (confirm(`Remover "${title}" do histórico?`)) {
-                    item.style.transition = 'all 0.3s ease';
-                    item.style.opacity = '0';
-                    item.style.transform = 'translateX(20px)';
-                    setTimeout(() => item.remove(), 300);
+        // Keyboard navigation support
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                if (profileDropdownOpen) {
+                    toggleProfileDropdown();
                 }
-            });
-        });
-
-        // Search functionality
-        document.querySelector('.search-input').addEventListener('input', function() {
-            const term = this.value.toLowerCase();
-            document.querySelectorAll('.search-item').forEach(item => {
-                const title = item.querySelector('.search-title').textContent.toLowerCase();
-                item.style.display = title.includes(term) ? 'flex' : 'none';
-            });
+                if (mobileMenuOpen) {
+                    toggleMobileMenu();
+                }
+            }
         });
     </script>
 </body>
-
 </html>

@@ -1,212 +1,161 @@
-// Elementos
-const menuToggle = document.getElementById('menuToggle');
-const offcanvas = document.getElementById('offcanvas');
-const overlay = document.getElementById('overlay');
-const closeBtn = document.getElementById('closeBtn');
-const loginModal = document.getElementById('loginModal');
-const signupModal = document.getElementById('signupModal');
-const modalCloselog = document.getElementById('modalClose-log');
-const modalClosesig = document.getElementById('modalClose-sig');
-const loginBtn = document.getElementById('loginBtn');
-const signupBtn = document.getElementById('signupBtn');
-const loginForm = document.getElementById('loginForm');
-const btnMainpage = document.getElementById('mainPageButton')
-
-
-window.addEventListener('DOMContentLoaded', () => {
-    loginModal.classList.remove('show');
-    signupModal.classList.remove('show');
-    document.body.style.overflow = 'auto';
-});
-
-// Abrir offcanvas
-menuToggle.addEventListener('click', () => {
-    menuToggle.classList.add('active');
-    offcanvas.classList.add('show');
-    overlay.classList.add('show');
-    document.body.style.overflow = 'hidden';
-});
-
-// Fechar offcanvas
-function closeOffcanvas() {
-    menuToggle.classList.remove('active');
-    offcanvas.classList.remove('show');
-    overlay.classList.remove('show');
-    document.body.style.overflow = 'auto';
+// Elementos do loginPage
+// Função voltar para a tela inicial
+function goBack() {
+    console.log('Voltando para a página inicial...');
+    // Em uma aplicação real, você usaria: window.history.back() ou redirecionaria
 }
 
-closeBtn.addEventListener('click', closeOffcanvas);
-overlay.addEventListener('click', closeOffcanvas);
+function handleLogin(event) {
+    event.preventDefault();
 
-// Fechar com ESC (OffCanvas)
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && offcanvas.classList.contains('show')) {
-        closeOffcanvas();
-    }
-});
+    const loginBtn = document.getElementById('loginBtn');
+    const errorMessage = document.getElementById('errorMessage');
 
-// Fechar com ESC (Modal Login e Signup)
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        closeLoginModal();
-        closeSignupModal();
-    }
-});
+    // Remove mensagem de erro anterior
+    errorMessage.classList.remove('show');
 
-// Botão de Login
-loginBtn.addEventListener('click', () => {
-    loginModal.classList.add('show');
-    document.body.style.overflow = 'hidden';
-});
+    // Adiciona estado de loading
+    loginBtn.classList.add('loading');
+    loginBtn.textContent = 'Entrando...';
 
-// Botão de Signup
-signupBtn.addEventListener('click', () => {
-    signupModal.classList.add('show');
-    document.body.style.overflow = 'hidden';
-});
+    // Simula requisição de login
+    setTimeout(() => {
+        const formData = new FormData(event.target);
+        const email = formData.get('email');
+        const password = formData.get('password');
 
-// Botão do Meio da Página
-btnMainpage.addEventListener('click', () => {
-    loginModal.classList.add('show');
-    document.body.style.overflow = 'hidden';
-});
+        // Simula validação (em uma app real, isso seria feito no servidor)
+        if (email === 'demo@localseek.com' && password === 'demo123') {
+            console.log('Login realizado com sucesso!');
+            alert('Login realizado com sucesso! Redirecionando para o dashboard...');
+            // Redirecionaria para o dashboard
+        } else {
+            // Mostra erro
+            errorMessage.classList.add('show');
+        }
 
-// Modal de Login - Close
-function closeLoginModal() {
-    loginModal.classList.remove('show');
-    document.body.style.overflow = 'auto';
-    overlay.classList.remove('show');
+        // Remove estado de loading
+        loginBtn.classList.remove('loading');
+        loginBtn.textContent = 'Entrar';
+    }, 2000);
 }
 
-modalCloselog.addEventListener('click', closeLoginModal);
-
-loginModal.addEventListener('click', (e) => {
-    if (e.target === loginModal) {
-        closeLoginModal();
-    }
-});
-
-// Modal de Signup - Close
-function closeSignupModal() {
-    signupModal.classList.remove('show');
-    document.body.style.overflow = 'auto';
-    overlay.classList.remove('show');
+function loginDirecionadoPerfil() {
+    window.location.href = "teste-pageNavbarPerfil.html";
 }
 
-modalClosesig.addEventListener('click', closeSignupModal);
+function forgotPassword() {
+    console.log('Redirecionando para recuperação de senha...');
+    alert('Funcionalidade de recuperação de senha seria implementada aqui.');
+    // Em uma aplicação real, redirecionaria para página de recuperação
+}
 
-signupModal.addEventListener('click', (e) => {
-    if (e.target === signupModal) {
-        closeSignupModal();
+function showSignup() {
+    window.location.href = "teste-cadastro.html"
+    // Em uma aplicação real, redirecionaria para a página de cadastro
+}
+
+// Adiciona feedback visual nos inputs
+document.querySelectorAll('.form-input').forEach(input => {
+    input.addEventListener('blur', function () {
+        if (this.value.trim() !== '') {
+            this.style.borderColor = '#10b981';
+        } else {
+            this.style.borderColor = '#e2e8f0';
+        }
+    });
+
+    input.addEventListener('focus', function () {
+        // Remove mensagem de erro quando usuário começar a digitar
+        document.getElementById('errorMessage').classList.remove('show');
+    });
+});
+
+// Demo credentials hint
+console.log('💡 Dica: Use demo@localseek.com / demo123 para testar o login');
+
+//Elementos signupPage
+//Função sobre a Senha
+function handleSubmit(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const password = formData.get('password');
+    const confirmPassword = formData.get('confirmPassword');
+
+    if (password !== confirmPassword) {
+        alert('As senhas não coincidem. Por favor, verifique e tente novamente.');
+        return;
+    }else{
+    // Simula criação da conta
+    console.log('Conta criada com sucesso!');
+    alert('Conta criada com sucesso! Redirecionando...');
+
+    // Em uma aplicação real, você faria uma requisição para o servidor
+    // e redirecionaria para a próxima página
+    function showLogin() {
+    window.location.href = "loginPage.html";
+    // Em uma aplicação real, redirecionaria para a página de login
+        }
     }
-});
+}
 
-// Fechar modal com ESC
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        if (loginModal.classList.contains('show')) closeLoginModal();
-        if (signupModal.classList.contains('show')) closeSignupModal();
-        if (offcanvas.classList.contains('show')) closeOffcanvas();
+function checkPasswordStrength(password) {
+    const strengthIndicator = document.getElementById('passwordStrength');
+    const strengthFill = document.getElementById('passwordStrengthFill');
+
+    if (password.length === 0) {
+        strengthIndicator.classList.remove('show');
+        return;
     }
-});
 
-// Form de Login
-loginForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Login funcionaria aqui!');
-    closeLoginModal();
-});
-// Validação de senha em tempo real
-document.getElementById('password').addEventListener('input', function () {
-    const password = this.value;
-    const strengthBar = document.getElementById('passwordStrengthBar');
+    strengthIndicator.classList.add('show');
 
     let strength = 0;
 
-    // Verificar critérios de força da senha
+    // Critérios de força da senha
     if (password.length >= 8) strength++;
-    if (/[a-z]/.test(password)) strength++;
     if (/[A-Z]/.test(password)) strength++;
+    if (/[a-z]/.test(password)) strength++;
     if (/[0-9]/.test(password)) strength++;
     if (/[^A-Za-z0-9]/.test(password)) strength++;
 
-    // Aplicar classes baseadas na força
-    strengthBar.className = 'password-strength-bar';
+    // Remove classes anteriores
+    strengthFill.className = 'password-strength-fill';
+
     if (strength <= 2) {
-        strengthBar.classList.add('weak');
+        strengthFill.classList.add('strength-weak');
     } else if (strength <= 4) {
-        strengthBar.classList.add('medium');
+        strengthFill.classList.add('strength-medium');
     } else {
-        strengthBar.classList.add('strong');
+        strengthFill.classList.add('strength-strong');
     }
-});
+}
 
-// Validação de confirmação de senha
-document.getElementById('confirmPassword').addEventListener('input', function () {
-    const password = document.getElementById('password').value;
-    const confirmPassword = this.value;
-
-    if (password !== confirmPassword) {
-        this.style.borderColor = '#e74c3c';
-    } else {
-        this.style.borderColor = '#4ECDC4';
-    }
-});
-
-// Validação do formulário
-document.getElementById('signupForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-
+function checkPasswordMatch() {
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
-    const terms = document.getElementById('terms').checked;
+    const confirmInput = document.getElementById('confirmPassword');
 
-    // Validações
-    if (password !== confirmPassword) {
-        alert('As senhas não coincidem!');
+    if (confirmPassword.length === 0) {
+        confirmInput.style.borderColor = '#e2e8f0';
         return;
     }
 
-    if (password.length < 8) {
-        alert('A senha deve ter pelo menos 8 caracteres!');
-        return;
+    if (password === confirmPassword) {
+        confirmInput.style.borderColor = '#10b981';
+    } else {
+        confirmInput.style.borderColor = '#ef4444';
     }
+}
 
-    if (!terms) {
-        alert('Você deve aceitar os termos de uso!');
-        return;
-    }
-
-    // Aqui você faria a requisição para o servidor
-    alert('Cadastro realizado com sucesso!');
-    closeSignupModal();
-});
-
-// Link para login
-document.getElementById('loginLink').addEventListener('click', function (e) {
-    e.preventDefault();
-    closeSignupModal();
-    loginModal.classList.add('show'); // Abre o Modal de Login
-    document.body.style.overflow = 'hidden'; // Evita scroll no fundo
-});
-
-//Link do Modal Login para o Signup
-document.getElementById('createAccountLink').addEventListener('click', function (e) {
-    e.preventDefault();
-    closeLoginModal(); // Fecha o login
-    signupModal.classList.add('show'); // Abre o cadastro
-    document.body.style.overflow = 'hidden'; // Evita scroll no fundo
-});
-
-//Botão Login OffCanvas
-document.getElementById('loginOffcanvas').addEventListener('click', function (e) {
-    e.preventDefault();
-    closeOffcanvas();
-    loginModal.classList.add('show'); // Abre o Modal de Login
-    document.body.style.overflow = 'hidden'; // Evita scroll no fundo
-});
-
-// Botão Google
-document.getElementById('googleLogin').addEventListener('click', () => {
-    alert('Login com Google funcionaria aqui!');
+// Adiciona feedback visual nos inputs
+document.querySelectorAll('.form-input').forEach(input => {
+    input.addEventListener('blur', function () {
+        if (this.value.trim() !== '') {
+            this.style.borderColor = '#10b981';
+        } else {
+            this.style.borderColor = '#e2e8f0';
+        }
+    });
 });

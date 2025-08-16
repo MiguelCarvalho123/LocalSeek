@@ -1,307 +1,146 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Local Seek</title>
+    <title>Local Seek - Descubra Seu Próximo Destino</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="CSS/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/styleIndexmain.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
-    <script src="scripts/main.js"></script>
+    <script src="Scripts/main.js"></script>
 </head>
-
 <body>
-    <!-- NavBar ------------------------------------------------------------------------------->
-    <nav class="navbar">
-        <div class="nav-content">
-            <!-- Menu Hamburger - Esquerda -->
-            <button class="menu-toggle" id="menuToggle">
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
-            </button>
-
-            <!-- Logo - Centro -->
-            <a href="#" class="logo"><img id="logoimage" src="images/Logo sem fundo.png"></a>
-
-            <!-- Botões Login/Signup - Direita -->
-            <div class="auth-buttons">
-                <button class="login-btn" id="loginBtn">Entrar</button>
-                <button class="signup-btn" id="signupBtn">Registrar-se</button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Overlay -->
-    <div class="overlay" id="overlay"></div>
-
-    <!-- Offcanvas Sidebar -->
-    <div class="offcanvas" id="offcanvas">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title">Local Seek</h5>
-            <button class="close-btn" id="closeBtn">&times;</button>
-        </div>
-        <div class="offcanvas-body">
-            <a href="" class="menu-item" id="loginOffcanvas">
-                <i class="icon"><img id="dropdownicon" src="images/icon2.png"></i>
-                <p id="textIcon">Login</p>
-            </a>
-            <br>
-            <div class="menu-section">
-                <div class="menu-section-title">Páginas</div>
-                <a href="#" class="menu-item">
-                    <i class="icon"><img id="dropdownicon" src="images/icon3.png"></i>
-                    <p id="textIcon">Página Inicial</p>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="icon"><img id="dropdownicon" src="images/icon4.png"></i>
-                    <p id="textIcon">Descubra sua viagem</p>
-                </a>
-                <a href="historico.html" class="menu-item">
-                    <i class="icon"><img id="dropdownicon" src="images/icon6.png"></i>
-                    <p id="textIcon">Histórico</p>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="icon"><img id="dropdownicon" src="images/icon5.png"></i>
-                    <p id="textIcon">Sobre Nós</p>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="icon"><img id="dropdownicon" src="images/icon1.png"></i>
-                    <p id="textIcon">Contato</p>
-                </a>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal de Login ---------------------------------------------------------------------->
-
-    <div class="login-modal" id="loginModal">
-        <div class="modal-content">
-            <button class="modal-close" id="modalClose-log">&times;</button>
-            <div class="modal-header">
-                <div class="modal-flag"></div>
-                <h2 class="modal-title"><img id="imageLogin" src="images/Icone sem fundo.png"> Log in</h2>
-            </div>
-
-            <form id="loginForm">
-                <div class="form-group">
-                    <input type="email" class="form-input" placeholder="Email" required>
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-input" placeholder="Senha" required>
-                </div>
-                <div class="forgot-password">
-                    <a href="#">Esqueceu a senha?</a>
-                </div>
-                <button type="submit" class="login-button">LOGIN</button>
-            </form>
-
-            <div class="no-account">
-                Não possui uma conta? <a href="" id="createAccountLink">Crie uma</a>
-            </div>
-
-            <div class="divider">
-                <span>Ou entre com serviços de terceiros</span>
-            </div>
-            <button class="google-login" id="googleLogin">
-                <span class="google-icon">📺</span>
-                LOG IN COM GOOGLE
-            </button>
-        </div>
-    </div>
-
-    <!-- Modal de Signup ---------------------------------------------------------------------->
-
-    <div class="signup-modal" id="signupModal">
-        <div class="modal-content">
-            <button class="modal-close" id="modalClose-sig">&times;</button>
-            <div class="modal-header">
-                <div class="modal-flag"></div>
-                <h2 class="modal-title">Cadastre-se</h2>
-            </div>
-
-            <form id="signupForm">
-                <div class="form-group">
-                    <input type="text" class="form-input" id="firstName" placeholder="Nome" required>
-                </div>
-
-                <div class="form-group">
-                    <input type="email" class="form-input" id="email" placeholder="Email" required>
-                </div>
-
-                <div class="form-group">
-                    <input type="password" class="form-input" id="password" placeholder="Senha" required>
-                    <div class="password-strength">
-                        <div class="password-strength-bar" id="passwordStrengthBar"></div>
-                    </div>
-                    <div class="password-requirements">
-                        Mínimo 8 caracteres, incluindo letras, números e símbolos
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <input type="password" class="form-input" id="confirmPassword" placeholder="Confirmar Senha"
-                        required>
-                </div>
-
-                <div class="terms-checkbox">
-                    <input type="checkbox" id="terms" required>
-                    <label for="terms">
-                        Eu concordo com os <a href="#" target="_blank">Termos de Uso</a> e
-                        <a href="#" target="_blank">Política de Privacidade</a>
-                    </label>
-                </div>
-
-                <button type="submit" class="signup-button" id="signupButton">CADASTRAR</button>
-            </form>
-
-            <div class="has-account">
-                Já possui uma conta? <a href="" id="loginLink">Faça login</a>
-            </div>
-
-            <div class="divider">
-                <span>Ou cadastre-se com terceiros</span>
-            </div>
-
-            <button class="google-signup" id="googleSignup">
-                <span class="google-icon">📺</span>
-                CADASTRAR COM GOOGLE
-            </button>
-        </div>
-    </div>
-    <!---------------------------------------------------------------------------------------->
-    <!--Página main ------------------------------------------------------------------------->
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="hero">
         <div class="hero-content">
-            <h1 class="hero-title"><br>Descubra seu novo local de lazer!</h1>
-            <p class="hero-subtitle">Resultados incríveis, baseados em suas preferências</p><br><br>
-            <button class="hero-cta" id="mainPageButton">Começar Agora</button>
+            <div class="hero-badge">
+                Destinos personalizados para você
+            </div>
+            <h1>Descubra Seu<br>Próximo Destino</h1>
+            <p>Encontre lugares incríveis baseados no seu clima ideal, paisagem preferida e nível de movimento que você busca.</p>
+            <div class="hero-buttons">
+                <a href="signupPage.html" class="btn btn-primary">
+                    Começar agora →
+                </a>
+                <a href="loginPage.html" class="btn btn-secondary">
+                    Já tenho conta
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about-section">
-        <div class="about-container">
-            <div class="about-content">
-                <h2>Acerca de nós:</h2>
-                <p class="about-text">
-                    Somos uma equipe dedicada a transformar seus sonhos em realidade, proporcionando experiências únicas e inesquecíveis.
-                </p>
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-container">
+            <h2>Como funciona o Local Seek</h2>
+            <p class="features-subtitle">Nossa plataforma utiliza seus critérios pessoais para encontrar destinos perfeitos</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon climate">📍</div>
+                    <h3>Clima Ideal</h3>
+                    <p>Encontre destinos com o clima que mais combina com você, seja tropical, temperado ou frio.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon landscape">🏞️</div>
+                    <h3>Paisagem Perfeita</h3>
+                    <p>Desde praias paradisíacas até montanhas majestosas, encontre a paisagem dos seus sonhos.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon population">👥</div>
+                    <h3>Nível Populacional</h3>
+                    <p>Prefere lugares movimentados ou tranquilos? Personalizamos conforme seu estilo.</p>
+                </div>
             </div>
-            <div class="about-image">
-                Experiências Únicas
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number blue">50K+</div>
+                    <div class="stat-label">Destinos descobertos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number teal">10K+</div>
+                    <div class="stat-label">Usuários ativos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number blue">95%</div>
+                    <div class="stat-label">Satisfação</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number teal">150+</div>
+                    <div class="stat-label">Países</div>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-container">
+            <h2>Pronto para sua próxima aventura?</h2>
+            <p>Junte-se a milhares de viajantes que já descobriram destinos incríveis com o Local Seek.</p>
+            <a href="signupPage.html" class="btn-cta">
+                Começar gratuitamente →
+            </a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
-            <div class="footer-content">
+            <div class="footer-grid">
                 <div class="footer-brand">
-                    <div class="brand-info">
-                        <div class="logo-icon"><img src="images/Icone sem fundo.png" alt="Icone do LocalSeek"></div>
-                        <div class="brand-name">Local Seek</div>
-                    </div>
-                    <p class="footer-description">
-                        Descubra os melhores locais de lazer com recomendações personalizadas.
-                    </p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+                    <h3>Local Seek</h3>
+                    <p>Descubra destinos incríveis personalizados para suas preferências de viagem.</p>
+                    <small>
+                        🔒 Seus dados estão seguros conosco
+                    </small>
                 </div>
-
-                <div class="footer-links">
-                    <h4>Links</h4>
+                
+                <div class="footer-section">
+                    <h4>Produto</h4>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Sobre</a></li>
-                        <li><a href="#">Consultas</a></li>
-                        <li><a href="#">Histórico</a></li>
-                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Como funciona</a></li>
+                        <li><a href="#">Destinos</a></li>
+                        <li><a href="#">Preços</a></li>
+                        <li><a href="#">Mobile App</a></li>
                     </ul>
                 </div>
-
-                <div class="footer-contact">
-                    <h4>Contato</h4>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            contato@localseek.com
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            (11) 9999-9999
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            São Paulo, SP
-                        </div>
-                    </div>
+                
+                <div class="footer-section">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#">Sobre nós</a></li>
+                        <li><a href="#">Carreiras</a></li>
+                        <li><a href="#">Imprensa</a></li>
+                        <li><a href="#">Parcerias</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Suporte</h4>
+                    <ul>
+                        <li><a href="#">Central de ajuda</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Status</a></li>
+                        <li><a href="#">Comunidade</a></li>
+                    </ul>
                 </div>
             </div>
-
+            
             <div class="footer-bottom">
-                <div class="copyright">
-                    © 2025 Local Seek. Todos os direitos reservados.
-                </div>
+                <p>&copy; 2024 Local Seek. Todos os direitos reservados.</p>
                 <div class="footer-bottom-links">
                     <a href="#">Privacidade</a>
                     <a href="#">Termos</a>
-                    <a href="#">FAQ</a>
+                    <a href="#">Cookies</a>
                 </div>
             </div>
         </div>
     </footer>
-
-    <!---------------------------------------------------------------------------------------->
-    <!-- Code injected by live-server -->
-    <script>
-        // <![CDATA[  <-- For SVG support
-        if ('WebSocket' in window) {
-            (function () {
-                function refreshCSS() {
-                    var sheets = [].slice.call(document.getElementsByTagName("link"));
-                    var head = document.getElementsByTagName("head")[0];
-                    for (var i = 0; i < sheets.length; ++i) {
-                        var elem = sheets[i];
-                        var parent = elem.parentElement || head;
-                        parent.removeChild(elem);
-                        var rel = elem.rel;
-                        if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-                            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-                            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-                        }
-                        parent.appendChild(elem);
-                    }
-                }
-                var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-                var address = protocol + window.location.host + window.location.pathname + '/ws';
-                var socket = new WebSocket(address);
-                socket.onmessage = function (msg) {
-                    if (msg.data == 'reload') window.location.reload();
-                    else if (msg.data == 'refreshcss') refreshCSS();
-                };
-                if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-                    console.log('Live reload enabled.');
-                    sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-                }
-            })();
-        }
-        else {
-            console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-        }
-        // ]]>
-    </script>
 </body>
-
-
 </html>
