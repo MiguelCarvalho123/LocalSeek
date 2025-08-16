@@ -41,7 +41,7 @@ function handleLogin(event) {
 }
 
 function loginDirecionadoPerfil() {
-    window.location.href = "teste-pageNavbarPerfil.html";
+    window.location.href = "historico.html";
 }
 
 function forgotPassword() {
