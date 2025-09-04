@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrar na sua conta - Local Seek</title>
+    <title>Registrar sua conta - Local Seek</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="CSS/styleLoginPage.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
-    <script src="Scripts/main.js"></script>
+    <script src="Scripts/jsLogin.js"></script>
 </head>
 <body>
     <div class="container">
@@ -38,7 +38,6 @@
                 <div class="form-group">
                     <label for="email">Email</label>
                     <div class="input-wrapper">
-                        <span class="input-icon email"></span>
                         <input type="email" id="email" name="email" class="form-input"
                             placeholder="seu.email@exemplo.com" required>
                     </div>
@@ -47,7 +46,6 @@
                 <div class="form-group">
                     <label for="password">Senha</label>
                     <div class="input-wrapper">
-                        <span class="input-icon lock"></span>
                         <input type="password" id="password" name="password" class="form-input" placeholder="••••••••"
                             required oninput="checkPasswordStrength(this.value)">
                     </div>
@@ -59,7 +57,6 @@
                 <div class="form-group">
                     <label for="confirmPassword">Confirmar senha</label>
                     <div class="input-wrapper">
-                        <span class="input-icon lock"></span>
                         <input type="password" id="confirmPassword" name="confirmPassword" class="form-input"
                             placeholder="••••••••" required oninput="checkPasswordMatch()">
                     </div>
