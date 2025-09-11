@@ -10,6 +10,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
     <script src="Scripts/jsLogin.js"></script>
+    <link rel = "icon" href = "images/Icone sem fundo.png">
 </head>
 <body>
     <div class="container">
@@ -25,12 +26,13 @@
                 <p>Junte-se a nós e descubra destinos incríveis</p>
             </div>
 
-            <form id="signupForm" onsubmit="handleSubmit(event)">
+            <!-- Formulário -->
+            <form id="signupForm" method="post" action="PHP/cadastro.php">
                 <div class="form-group">
-                    <label for="fullName">Nome completo</label>
+                    <label for="nome">Nome completo</label>
                     <div class="input-wrapper">
                         <span class="input-icon user"></span>
-                        <input type="text" id="fullName" name="fullName" class="form-input"
+                        <input type="text" id="nome" name="nome" class="form-input"
                             placeholder="Seu nome completo" required>
                     </div>
                 </div>
@@ -44,25 +46,21 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="password">Senha</label>
+                    <label for="senha">Senha</label>
                     <div class="input-wrapper">
-                        <input type="password" id="password" name="password" class="form-input" placeholder="••••••••"
-                            required oninput="checkPasswordStrength(this.value)">
-                    </div>
-                    <div class="password-strength" id="passwordStrength">
-                        <div class="password-strength-fill" id="passwordStrengthFill"></div>
+                        <input type="password" id="senha" name="senha" class="form-input" placeholder="••••••••" required>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="confirmPassword">Confirmar senha</label>
+                    <label for="confirmSenha">Confirmar senha</label>
                     <div class="input-wrapper">
-                        <input type="password" id="confirmPassword" name="confirmPassword" class="form-input"
+                        <input type="password" id="confirmSenha" name="confirmSenha" class="form-input"
                             placeholder="••••••••" required oninput="checkPasswordMatch()">
                     </div>
                 </div>
 
-                <button type="submit" class="btn-create" onclick="showLogin()">
+                <button type="submit" class="btn-create">
                     Criar conta
                 </button>
             </form>
