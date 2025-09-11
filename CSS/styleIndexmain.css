@@ -54,9 +54,9 @@ body {
   position: relative;
   background: linear-gradient(
       135deg,
-      rgba(37, 99, 235, 0.6) 0%,
-      rgba(29, 78, 216, 0.6) 50%,
-      rgba(55, 48, 163, 0.6) 100%
+      rgba(37, 99, 235, 0.3) 0%,
+      rgba(29, 78, 216, 0.3) 50%,
+      rgba(55, 48, 163, 0.3) 100%
     );
   min-height: 100vh;
   overflow: hidden;
@@ -384,7 +384,6 @@ body {
 }
 
 .footer-bottom {
-    border-top: 1px solid #e2e8f0;
     padding-top: 2rem;
     display: flex;
     justify-content: center;
@@ -410,6 +409,10 @@ body {
 .footer-bottom-links a:hover {
     color: #6366f1;         /* Azul destaque no hover */
     transform: translateY(-2px); /* Efeito leve de "subida" */
+}
+
+.index_icon {
+    font-size: 48px !important;
 }
 
 /* Responsive Design */

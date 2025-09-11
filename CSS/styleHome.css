@@ -1,0 +1,299 @@
+/* Reset e Box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.home {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    color: #1a202c;
+    line-height: 1.6;
+}
+
+/* Container */
+.home-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero Section */
+.home-hero-section {
+    text-align: center;
+    margin-bottom: 3rem;
+    margin-top: 3vw;
+    padding: 2rem 0 2rem 0;
+    background: #d9dbff;
+    position: relative;
+    border-radius: 20px;
+}
+
+.home-welcome-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.home-brand-name {
+    color: #3b82f6;
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.home-hero-description {
+    color: #64748b;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.home-header-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.home-btn-primary, .home-btn-secondary {
+    padding: 12px 24px;
+    font-weight: 600;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.home-btn-primary {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.home-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.home-btn-secondary {
+    background: white;
+    color: #3b82f6;
+    border: 2px solid #3b82f6;
+}
+
+.home-btn-secondary:hover {
+    background: #3b82f6;
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* Features Section */
+.home-features {
+    margin-bottom: 3rem;
+}
+
+.home-section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.home-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.home-feature-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.home-feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.home-feature-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.home-feature-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.home-feature-description {
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+/* Highlight Section */
+.home-highlight {
+    margin-bottom: 3rem;
+}
+
+.home-highlight-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.home-highlight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+
+.home-highlight-image {
+    height: 300px;
+    background-image: url(../images/saopaulo-suggesionPage.jpg);
+    background-size: cover;
+    background-position: bottom; /* foca no rodapé da imagem */
+    background-repeat: no-repeat;
+}
+
+.home-highlight-content {
+    padding: 2rem;
+}
+
+.home-highlight-location {
+    display: inline-block;
+    background: #ecfdf5;
+    color: #059669;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.home-highlight-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.home-highlight-description {
+    color: #64748b;
+    margin-bottom: 1.5rem;
+}
+
+/* Recommendations Section */
+.home-recommendations {
+    margin-bottom: 3rem;
+}
+
+.home-recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.home-destination-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.home-destination-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+
+.home-destination-image {
+    height: 200px;
+    position: relative;
+}
+
+
+.home-destination-image.barcelona {
+    background-image: url(../images/paisagem-salvador-farol-da-barra.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.home-destination-image.amazon {
+    background-image: url(../images/iguazu-falls-towering-cliff-axt5hd2ssj4kzwsd.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.home-country-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.home-country-tag.spain {
+    background: rgba(251,146,60,0.9);
+    color: white;
+}
+
+.home-country-tag.brazil {
+    background: rgba(34,197,94,0.9);
+    color: white;
+}
+
+.home-destination-content {
+    padding: 1.5rem;
+}
+
+.home-destination-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.home-destination-description {
+    color: #64748b;
+    margin-bottom: 1.5rem;
+}
+
+/* Animations */
+@keyframes home-fadeInUp {
+    from { opacity: 0; transform: translateY(30px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+.home-feature-card,
+.home-highlight-card,
+.home-destination-card {
+    animation: home-fadeInUp 0.6s ease forwards;
+}
+
+.home-feature-card:nth-child(2) { animation-delay: 0.1s;}
+.home-feature-card:nth-child(3) { animation-delay: 0.2s;}
+.home-destination-card:nth-child(2) { animation-delay: 0.2s;}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .home-features-grid { grid-template-columns: repeat(2,1fr);}
+    .home-recommendations-grid { grid-template-columns: 1fr;}
+}
+
+@media (max-width: 768px) {
+    .home-mobile-menu-btn { display: block; }
+    .home-profile-info { display: none; }
+}
