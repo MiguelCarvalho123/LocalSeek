@@ -2,7 +2,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["nome"])) {
-    header("Location: ../loginPage.html");
+    header("Location: loginPage.html");
     exit();
 }
 $nome = $_SESSION["nome"];
@@ -23,6 +23,7 @@ $inicial = strtoupper(substr($nome, 0, 1));
     <link rel="stylesheet" href="CSS/styleHistoricomain.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" /> 
     <script src="Scripts/jsSuggestion.js"></script>
+    <script src="Scripts/jsSuggestionAPI.js"></script>
     <script src="Scripts/jsHistorico.js"></script>
     <link rel = "icon" href = "images/Icone sem fundo.png">
 </head>
@@ -79,7 +80,7 @@ $inicial = strtoupper(substr($nome, 0, 1));
 
                     <div class="dropdown-divider"></div>
 
-                    <a href="#" class="dropdown-item danger" onclick="logout()">
+                    <a href="PHP/logout.php" class="dropdown-item danger">
                         <span class="dropdown-icon"><span class="material-symbols-outlined">logout</span></span>
                         Sair
                     </a>
@@ -100,84 +101,80 @@ $inicial = strtoupper(substr($nome, 0, 1));
         <!-- Filtros -->
         <section class="filters-section">
             <div class="filters-header">
-                <i class="fas fa-filter filters-icon"></i>
                 <div>
                     <h2 class="filters-title">Personalizar Sugestões</h2>
                     <p class="filters-subtitle">Ajuste suas preferências para receber sugestões ainda mais precisas</p>
                 </div>
             </div>
 
+            <!-- Parte das Sugestões de Destinos -->
             <div class="filters-grid">
-                <div class="filter-group">
-                    <label class="filter-label">
-                        <i class="fas fa-dollar-sign"></i>
-                        Orçamento
-                    </label>
-                    <select class="filter-select">
-                        <option>Selecione</option>
-                        <option>Até R$ 2.000</option>
-                        <option>R$ 2.000 - R$ 5.000</option>
-                        <option>R$ 5.000 - R$ 10.000</option>
-                        <option>Acima de R$ 10.000</option>
-                    </select>
-                </div>
 
-                <div class="filter-group">
-                    <label class="filter-label">
-                        <img id = "weather" src = "images/weather.png">
-                        Clima
-                    </label>
-                    <select class="filter-select">
-                        <option>Selecione</option>
-                        <option>1-3 dias</option>
-                        <option>4-7 dias</option>
-                        <option>8-14 dias</option>
-                        <option>Mais de 14 dias</option>
-                    </select>
-                </div>
-
+                <!-- Preferência -->
                 <div class="filter-group">
                     <label class="filter-label">
                         <img id = "weather" src = "images/landscape.png">
                         Paisagem
                     </label>
-                    <select class="filter-select">
+                    <select id="preferencia" class="filter-select">
                         <option>Selecione</option>
-                        <option>Aventura</option>
-                        <option>Romance</option>
-                        <option>Relax</option>
-                        <option>Cultura</option>
-                        <option>Família</option>
+                        <option value="praia">Praia</option>
+                        <option value="cidade">Cidade</option>
+                        <option value="natureza">Natureza</option>
                     </select>
                 </div>
-
+                
+                <!-- Clima -->
+                <div class="filter-group">
+                    <label class="filter-label">
+                        <img id = "weather" src = "images/weather.png">
+                        Clima
+                    </label>
+                    <select id="clima" class="filter-select">
+                        <option>Selecione</option>
+                        <option value="tropical">Tropical</option>
+                        <option value="subtropical">Subtropical</option>
+                    </select>
+                </div>
+                
+                <!-- Popularidade -->
                 <div class="filter-group">
                     <label class="filter-label">
                         <i class="fas fa-users"></i>
                         Popularidade
                     </label>
-                    <select class="filter-select">
+                    <select id="popularidade" class="filter-select">
                         <option>Selecione</option>
-                        <option>Solo</option>
-                        <option>Casal</option>
-                        <option>Família</option>
-                        <option>Amigos</option>
+                        <option value="3">3+</option>
+                        <option value="4">4+</option>
+                        <option value="5">5</option>
                     </select>
+                </div>
+
+                <!-- Orçamento -->
+                <div class="filter-group">
+                    <label class="filter-label">
+                        <i class="fas fa-dollar-sign"></i>
+                        Orçamento
+                    </label>
+                    <input type="number" id="orcamento" class="filter-select">
+                    </input>
                 </div>
             </div>
 
-            <!-- Button Filters -->
-            <button class="generate-btn">
+            <!-- Button da Filtragem -->
+            <button class="generate-btn" onclick="sugerirDestino()">
                 <i class="fas fa-magic"></i>
                 Gerar Novas Sugestões
             </button>
         </section>
 
-        <!-- Content - Tirar do Comentário depois da API pronta
         <section class="suggestions-section">
-            <h2 class="section-title">Suas Sugestões Personalizadas</h2> -->
+            <h2 class="section-title">Suas Sugestões Personalizadas</h2>
 
-            <!-- Cards Suggestions-->
+            <!-- Cards Suggestions (Aparecerá através desse ID, o design do card está embutido no JS)-->
+            <div id="sugestao"></div>
+            
         </section>
     </main>
     <!-- Footer -->
@@ -198,5 +195,5 @@ $inicial = strtoupper(substr($nome, 0, 1));
         </div>
     </footer>
 </body>
-
 </html>
+

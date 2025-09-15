@@ -79,7 +79,7 @@ $inicial = strtoupper(substr($nome, 0, 1));
 
                     <div class="dropdown-divider"></div>
 
-                    <a href="#" class="dropdown-item danger" onclick="logout()">
+                    <a href="PHP/logout.php" class="dropdown-item danger">
                         <span class="dropdown-icon"><span class="material-symbols-outlined">logout</span></span>
                         Sair
                     </a>
@@ -92,7 +92,7 @@ $inicial = strtoupper(substr($nome, 0, 1));
     <div class="home-container">
         <!-- Hero Section -->
         <section class="home-hero-section">
-            <h1 class="home-welcome-title">Bem-vindo de volta, <span class="home-brand-name"><?= htmlspecialchars($nome) ?>!</span></h1>
+            <h1 class="home-welcome-title">Seja Bem-vindo, <span class="home-brand-name"><?= htmlspecialchars($nome) ?>!</span></h1>
             <p class="home-hero-description">
                 O <strong>Local Seek</strong> é sua plataforma inteligente para descobrir destinos únicos.
             </p>

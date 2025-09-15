@@ -2,7 +2,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["nome"])) {
-    header("Location: ../loginPage.html");
+    header("Location: loginPage.html");
     exit();
 }
 $nome = $_SESSION["nome"];
@@ -76,7 +76,7 @@ $inicial = strtoupper(substr($nome, 0, 1));
 
                     <div class="dropdown-divider"></div>
 
-                    <a href="#" class="dropdown-item danger" onclick="logout()">
+                    <a href="PHP/logout.php" class="dropdown-item danger">
                         <span class="dropdown-icon"><span class="material-symbols-outlined">logout</span></span>
                         Sair
                     </a>
